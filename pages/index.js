@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import withRedux from 'next-redux-wrapper'
 import defaultPage from '../src/common/hocs/defaultPage'
-import todoReducer from '../src/modules/index/reducer'
-import AddTodo from '../src/modules/index/containers/AddTodo'
-import TodoList from '../src/modules/index/containers/TodoList'
-import Footer from '../src/modules/index/containers/Footer'
+import homeReducer from '../src/modules/index/reducer'
+import Picker from '../src/modules/index/containers/Picker'
+import Posts from '../src/modules/index/containers/Posts'
 import stylesheet from '../src/common/styles/styles.css'
 
 class Page extends Component {
@@ -15,10 +13,8 @@ class Page extends Component {
   render() {
     return (
       <section>
-        <h1>todos</h1>
-        <AddTodo />
-        <TodoList />
-        <Footer />
+        <Picker />
+        <Posts />
       </section>
     )
   }
@@ -26,5 +22,5 @@ class Page extends Component {
 
 export default defaultPage({
   Page, 
-  reducer: { todos: todoReducer }
+  reducer: { home: homeReducer }
 })

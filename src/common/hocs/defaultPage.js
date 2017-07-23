@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { createStore, combineReducers } from 'redux'
 import withRedux from 'next-redux-wrapper'
+import createSagaMiddleware from 'redux-saga'
 import Link from 'next/link'
 import Head from 'next/head'
 import Header from '../widgets/Header'
 import mainStyle from '../styles/styles.css'
 
 const initStore = (reducer, initialState) => {
+  const sagaMiddleware = createSagaMiddleware({sagaMonitor})
   const buildStore = () =>
     createStore(
       combineReducers({...reducer}),
-      initialState
+      initialState,
+      createSagaMiddleware(sagaMiddleware)
     )
   return buildStore
 }
@@ -33,7 +36,7 @@ const mainPage = (Page) => class DefaultPage extends Component {
 const defaultPage = ({ Page, reducer }) => (
   withRedux(
     initStore(reducer),
-    null
+    
   )(mainPage(Page))
 )
 

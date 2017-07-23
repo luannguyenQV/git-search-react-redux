@@ -1,18 +1,14 @@
 import { createAction } from 'redux-actions'
 
-const ADD_TODO = 'ADD_TODO'
-const UPDATE_TODO = 'UPDATE_TODO'
-const DELETE_TODO = 'DELETE_TODO'
-const MARK_AS_COMPLETE = 'MARK_AS_COMPLETE'
-const SET_FILTER = 'SET_FILTER'
+const REQUEST_POSTS = 'REQUEST_POSTS'
+const RECEIVE_POSTS = 'RECEIVE_POSTS'
+const SELECT_REDDIT = 'SELECT_REDDIT'
+const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'
 
+export const requestPost = createAction(REQUEST_POSTS)
 
-export const addTodo = createAction(ADD_TODO)
+export const receivePost = createAction(RECEIVE_POSTS)
 
-export const updateTodo = createAction(UPDATE_TODO)
+export const selectReddit = createAction(SELECT_REDDIT)
 
-export const deleteTodo = createAction(DELETE_TODO)
-
-export const setFilter = createAction(SET_FILTER)
-
-export const markAllComplete = createAction(MARK_AS_COMPLETE)
+export const invalidateReddit = createAction(INVALIDATE_REDDIT)
